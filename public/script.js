@@ -20,7 +20,7 @@ if(navigator.geolocation){
     )
 }
 
-const map = L.map("map").setView([0,0],10)
+const map = L.map("map").setView([0,0],16)
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
     attribution:"sheryians"
@@ -31,7 +31,7 @@ const marker = {}
 
 socket.on("recive-location" ,function (data){
     const {id,latitude,longitude} = data
-    map.setView([latitude,longitude],16)
+    map.setView([latitude,longitude])
 
     if(marker[id]){
         marker[id].setLatLng([latitude,longitude])
